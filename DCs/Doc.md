@@ -46,7 +46,6 @@
 ### 🎨 Figma to Code Converter
 - Converts Figma JSON into component code
 - Useful for front-end engineers and designers
-
 ### 🌐 Streamlit Deploy UI
 - Run the entire system from a sleek web GUI
 - Upload a project, analyze, refactor, or summarize with one click
