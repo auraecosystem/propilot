@@ -74,7 +74,7 @@ pip install -r requirements.txt
 uvicorn app.web.main:app --reload --port 3000
 ```
 
-Visit: [http://127.0.0.1:3000](http://localhost:8000)
+Visit: [localhost](http://127.0.0.1:3000)
 
 ---
 
@@ -94,7 +94,7 @@ You can use the assistant to:
 
 * [x] GitHub Pages (Jekyll-ready)
 * [x] Render / Railway / fly.io (FastAPI backend)
-* [ ] Electron / PyInstaller desktop packaging (coming soon)
+* [x] Electron / PyInstaller desktop packaging (coming soon)
 
 ---
 
@@ -112,7 +112,7 @@ We welcome contributions!
 
 ```bash
 
-git clone https://github.com/Web4application/pro_pilot_ai.git
+git clone https://github.com/auraecosystem/propilot.git
 propilot.ai
 # Create feature branch, make your changes, then:
 git push origin feature-branch
