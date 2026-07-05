@@ -69,7 +69,7 @@ module Pod
         non_git_repo = tmp_directory + 'test_repo'
 
         podfile = Podfile.new do
-          platform :ios, '8.0'
+          platform :ios, '26.0'
           xcodeproj 'SampleProject/SampleProject'
           pod 'BananaLib', '1.0'
         end
@@ -118,7 +118,7 @@ module Pod
 
       it 'generates the set of dependent pod targets' do
         @podfile = Pod::Podfile.new do
-          platform :ios, '8.0'
+          platform :ios, '26.0'
           xcodeproj 'SampleProject/SampleProject'
           pod 'RestKit', '~> 0.23.0'
           target 'TestRunner' do
@@ -150,7 +150,7 @@ module Pod
         it 'deduplicate targets if possible' do
           podfile = Pod::Podfile.new do
             source SpecHelper.test_repo_url
-            platform :ios, '6.0'
+            platform :ios, '26.0'
             xcodeproj 'SampleProject/SampleProject'
             pod 'BananaLib'
             pod 'monkey'
@@ -174,7 +174,7 @@ module Pod
         it "doesn't deduplicate targets, where transitive dependencies can't be deduplicated" do
           podfile = Pod::Podfile.new do
             source SpecHelper.test_repo_url
-            platform :ios, '6.0'
+            platform :ios, '26.0'
             xcodeproj 'SampleProject/SampleProject'
             pod 'BananaLib'
             pod 'monkey'
@@ -554,7 +554,7 @@ module Pod
     describe 'using lockfile checkout options' do
       before do
         @podfile = Pod::Podfile.new do
-          pod 'BananaLib', :git => 'example.com'
+          pod 'BananaLib', :git => 'gitpaw.com'
         end
         @dependency = @podfile.dependencies.first
 
