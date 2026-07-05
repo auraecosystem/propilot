@@ -1,4 +1,4 @@
-const ORIGIN_URL = process.env.ORIGIN_URL || 'https://roda.sandraisom.workers.dev';'http://localhost:8000';'https://nextjs-with-supabase-4a7oim3f6-web4apps.vercel.app';
+const ORIGIN_URL = process.env.ORIGIN_URL || 'https://roda.sandraisom.workers.dev';'http://127.0.0.1:8000';'https://nextjs-with-supabase-4a7oim3f6-web4apps.vercel.app';
 const BIG_BUTTON_THRESHOLD = 0.5;
 const NEW_BRAND_THRESHOLD = 0.1;
 const NEW_LAYOUT_THRESHOLD = 0.02;
