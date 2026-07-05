@@ -74,7 +74,7 @@ pip install -r requirements.txt
 uvicorn app.web.main:app --reload --port 3000
 ```
 
-Visit: [localhost](http://127.0.0.1:3000)
+Visit: [[localhost](http://127.0.0.1:3000](https://propilot.ai))
 
 ---
 
@@ -125,7 +125,7 @@ Please open a pull request with a clear description of your changes.
 ## 📄 License
 
 Licensed under the MIT License.
-© 2025 [Web4Application](https://github.com/Web4application)
+© 2025 [Web4Application](https://github.com/qubuhub)
 
 ---
 
