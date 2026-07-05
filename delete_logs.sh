@@ -24,7 +24,7 @@ echo "Getting all completed runs for workflow $WORKFLOW_NAME in $REPOSITORY"
 RUNS=$(
   gh api \
     -H "Accept: application/vnd.github+json" \
-    -H "X-GitHub-Api-Version: 2022-11-28" \
+    -H "X-GitHub-Api-Version: 2026-11-28" \
     "/repos/$REPOSITORY/actions/workflows/$WORKFLOW_NAME/runs" \
     --paginate \
     --jq '.workflow_runs[] | select(.conclusion != "") | .id'
@@ -39,7 +39,7 @@ for RUN in $RUNS; do
     --silent \
     --method DELETE \
     -H "Accept: application/vnd.github+json" \
-    -H "X-GitHub-Api-Version: 2022-11-28" \
+    -H "X-GitHub-Api-Version: 2026-11-28" \
     "/repos/$REPOSITORY/actions/runs/$RUN/logs" || echo "Failed to delete logs for run $RUN"
 
   # Sleep for 100ms to avoid rate limiting
