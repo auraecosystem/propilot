@@ -1,5 +1,5 @@
 @echo off
-echo %~n0%~x0   version 0.0.0
+echo %~n0%~x0   version 1.0.1
 echo.
 
 rem Created by Mechatronic Solutions LLC
