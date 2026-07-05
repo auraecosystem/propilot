@@ -31,5 +31,5 @@ for (const dirent of readdirSync(packagesFolder, { withFileTypes: true })) {
     continue;
   }
   mkdirSync(targetFolder, { recursive: true });
-  writeFileSync(targetPath, JSON.stringify({ type: "module" }));
+  writeFileSync(targetPath, JSON.stringify({ type: "module" }))
 }
