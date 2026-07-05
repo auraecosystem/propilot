@@ -2,42 +2,364 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>ProjectPilotAI CI/CD Report</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ProjectPilotAI – Developer’s Second Brain</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
   <style>
-    body { font-family: 'Segoe UI', sans-serif; margin: 2rem; background: #f7f7f7; color: #333; }
-    h1, h2 { color: #222; }
-    pre { background: #f0f0f0; padding: 1rem; border-radius: 6px; overflow-x: auto; }
-    .job-block { margin-bottom: 3rem; }
-    .footer { margin-top: 4rem; font-size: 0.9rem; color: #777; }
+    :root {
+      --accent: #4a90ff;
+      --dark-bg: #0b0f1a;
+      --light: #e0e7ff;
+      --glow: 0 0 15px rgba(74,144,255,0.5);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: radial-gradient(circle at top, #0f1525, #000);
+      color: var(--light);
+      overflow-x: hidden;
+    }
+
+    /* NAVBAR */
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(10, 15, 30, 0.9);
+      backdrop-filter: blur(12px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 40px;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    }
+
+    .navbar .logo {
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: var(--accent);
+      text-shadow: var(--glow);
+    }
+
+    .navbar ul {
+      display: flex;
+      gap: 25px;
+      list-style: none;
+    }
+
+    .navbar a {
+      color: var(--light);
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .navbar a:hover {
+      color: var(--accent);
+      text-shadow: var(--glow);
+    }
+
+    .toggle {
+      display: none;
+      font-size: 1.8rem;
+      cursor: pointer;
+      color: var(--accent);
+    }
+
+    @media (max-width: 768px) {
+      .navbar ul {
+        display: none;
+        flex-direction: column;
+        background: rgba(10,15,30,0.98);
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 200px;
+        padding: 20px;
+      }
+      .navbar ul.show {
+        display: flex;
+      }
+      .toggle {
+        display: block;
+      }
+    }
+
+    /* HERO */
+    .hero {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      padding: 100px 20px 60px;
+      position: relative;
+    }
+
+    .hero h1 {
+      font-size: 3.6rem;
+      font-weight: 800;
+      color: white;
+      text-shadow: 0 0 25px rgba(74,144,255,0.5);
+      animation: fadeIn 2s ease;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      color: #9ea9ff;
+      margin: 20px 0 40px;
+      max-width: 700px;
+      animation: fadeIn 2.4s ease;
+    }
+
+    .btn {
+      background: var(--accent);
+      color: #fff;
+      padding: 14px 34px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 10px rgba(74,144,255,0.3);
+      animation: fadeIn 2.8s ease;
+    }
+
+    .btn:hover {
+      background: #3578ff;
+      box-shadow: 0 0 20px rgba(74,144,255,0.6);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* FEATURES */
+    section {
+      padding: 100px 60px;
+      max-width: 1100px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    section h2 {
+      font-size: 2rem;
+      margin-bottom: 25px;
+      color: var(--accent);
+      text-shadow: var(--glow);
+    }
+
+    .features .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+    }
+
+    .feature-card {
+      background: rgba(20, 25, 45, 0.85);
+      padding: 25px;
+      border-radius: 10px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: 1px solid rgba(74,144,255,0.2);
+    }
+
+    .feature-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 0 25px rgba(74,144,255,0.4);
+    }
+
+    /* DEMO */
+    .demo .demo-box {
+      background: rgba(15, 20, 40, 0.9);
+      border-radius: 12px;
+      padding: 25px;
+      max-width: 700px;
+      margin: 0 auto;
+      text-align: left;
+      box-shadow: var(--glow);
+      border: 1px solid rgba(74,144,255,0.3);
+    }
+
+    .console {
+      font-family: monospace;
+      color: #9ea9ff;
+      white-space: pre-line;
+      overflow: hidden;
+      border-left: 2px solid var(--accent);
+      padding-left: 10px;
+      animation: blink 1s step-start infinite;
+    }
+
+    @keyframes blink {
+      50% { border-color: transparent; }
+    }
+
+    /* TEAM */
+    .team .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 30px;
+    }
+
+    .member img {
+      border-radius: 50%;
+      margin-bottom: 10px;
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      box-shadow: var(--glow);
+    }
+
+    .member h3 {
+      color: var(--accent);
+    }
+
+    /* FOOTER */
+    footer {
+      background: rgba(10, 15, 25, 0.9);
+      text-align: center;
+      padding: 20px 0;
+      font-size: 0.9rem;
+      color: #9ea9ff;
+      border-top: 1px solid rgba(74,144,255,0.2);
+    }
+
+    /* VOICE ANIMATION */
+    .voice-wave {
+      display: flex;
+      justify-content: center;
+      gap: 4px;
+      margin-top: 20px;
+    }
+
+    .bar {
+      width: 6px;
+      height: 20px;
+      background: var(--accent);
+      animation: sound 1.2s infinite ease-in-out;
+    }
+
+    .bar:nth-child(1) { animation-delay: 0s; }
+    .bar:nth-child(2) { animation-delay: 0.2s; }
+    .bar:nth-child(3) { animation-delay: 0.4s; }
+    .bar:nth-child(4) { animation-delay: 0.6s; }
+
+    @keyframes sound {
+      0%, 100% { height: 10px; opacity: 0.7; }
+      50% { height: 30px; opacity: 1; }
+    }
+
   </style>
 </head>
 <body>
-  <h1>🚀 ProjectPilotAI CI/CD Report Viewer</h1>
 
-  <div class="job-block">
-    <h2>🧮 Homework Pipeline</h2>
-    <p>This pipeline performs: <strong>Add 3 + 7</strong> → <strong>× 9</strong> → <strong>Print Result</strong></p>
-    <pre><code>
-job_1: echo $((3 + 7)) → math-homework.txt
-job_2: cat math-homework.txt → value × 9 → new math-homework.txt
-job_3: cat math-homework.txt → print "🧠 The result is: $value"
-    </code></pre>
-  </div>
+  <section class="hero">
+    <h1>Meet ProjectPilotAI</h1>
+    <p>The AI-powered developer assistant that understands, analyzes, and improves your codebase — your true coding co-pilot.</p>
+    <a href="#features" class="btn">Explore Features</a>
+    <div class="voice-wave">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </div>
+  </section>
 
-  <div class="job-block">
-    <h2>🧪 Matrix Artifact Upload</h2>
-    <p>Generated on <code>ubuntu</code>, <code>macOS</code>, and <code>windows</code></p>
-    <pre><code>
-upload: echo "hello from ${{ matrix.os }}" > file-${{ matrix.os }}.txt
-download: download artifacts → merged into /my-artifacts/
-    </code></pre>
-  </div>
+  <section id="features" class="features">
+    <h2>🚀 Features</h2>
+    <div class="grid">
+      <div class="feature-card"><strong>🔍 AI Codebase Analysis</strong><p>Summarize entire repos, understand codebases in seconds.</p></div>
+      <div class="feature-card"><strong>✨ Intelligent Refactoring</strong><p>Catch anti-patterns, suggest best practices, and auto-fix code.</p></div>
+      <div class="feature-card"><strong>🛠 Real-Time Dev Watchdog</strong><p>Monitor file changes and instantly suggest improvements.</p></div>
+      <div class="feature-card"><strong>🤖 PR Review Bot</strong><p>Auto-review pull requests with AI-powered precision.</p></div>
+      <div class="feature-card"><strong>📄 Auto-Docs Generator</strong><p>Generate or update README, docstrings, and architecture maps.</p></div>
+      <div class="feature-card"><strong>🔈 Voice Command & TTS</strong><p>Control your dev flow using voice, or hear updates aloud.</p></div>
+      <div class="feature-card"><strong>💡 Natural Language Generator</strong><p>“Create a Flask API with Docker and tests” → Done.</p></div>
+      <div class="feature-card"><strong>🎨 Figma to Code Converter</strong><p>Instantly turn designs into real code components.</p></div>
+    </div>
+  </section>
 
-  <div class="footer">
-    Generated by <strong>ProjectPilotAI</strong> — view CI Logs:
-    <a href="https://github.com/Web4application/project_pilot_ai/actions" target="_blank">GitHub Actions</a>
-  </div>
-</body>
+  <section id="DEMO" class="demo">
+    <h2>⚙️ Live Console Demo</h2>
+    <div class="demo-box">
+      <div class="console" id="consoleText"></div>
+    </div>
+  </section>
+
+  <section id="team" class="team">
+    <h2>👨‍💻 The Team Behind ProjectPilotAI</h2>
+    <div class="grid">
+      <div class="member">
+        <img src="https://avatars.githubusercontent.com/u/149898803?v=4" alt="Seriki Yakub">
+        <h3>Seriki Yakub</h3>
+        <p>Founder & AI Developer</p>
+      </div>
+      <div class="member">
+        <img src="https://chatgpt.com/s/m_68e4f7344b2481918b4714f2dd136e82.png" alt="AI Logo">
+        <h3>ProjectPilotAI</h3>
+        <p>Autonomous AI Assistant</p>
+      </div>
+    </div>
+  </section>
+  
+<nav class="navbar">
+  <div class="logo">⚡ ProjectPilotAI</div>
+  <span class="toggle" onclick="toggleMenu()">☰</span>
+  <ul id="nav-links">
+    <li><a href="#features">Features</a></li>
+    <li><a href="#demo">Demo</a></li>
+    <li><a href="#team">Team</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+  </section>
+  
+  <footer>
+    © 2025 ProjectPilotAI by Web4Application | Built with ❤️ and LLMs
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById('nav-links').classList.toggle('show');
+    }
+
+    const consoleText = document.getElementById('consoleText');
+    const demoLines = [
+      "$ analyze my codebase",
+      "→ AI: Detected  Python javascripts localfiles with txt extension modules. 3 possible security issues fixed.",
+      "",
+      "$ generate docs",
+      "→ AI: README.md updated with latest features.",
+      "",
+      "$ refactor module utils.py",
+      "→ AI: Refactored successfully — improved code readability by 27% 🚀"
+    ];
+    let line = 0;
+    let char = 0;
+
+    function typeConsole() {
+      if (line < demoLines.length) {
+        if (char < demoLines[line].length) {
+          consoleText.innerHTML += demoLines[line][char];
+          char++;
+          setTimeout(typeConsole, 40);
+        } else {
+          consoleText.innerHTML += "<br>";
+          line++;
+          char = 0;
+          setTimeout(typeConsole, 400);
+        }
+      }
+    }
+    window.onload = typeConsole;
+ 
+  </script>
+ </body>
 </html>
-
-

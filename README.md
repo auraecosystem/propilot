@@ -1,10 +1,10 @@
-![MIT License](https://img.shields.io/github/license/Web4application/project_pilot_ai)
+![MIT License](https://img.shields.io/github/license/Web4application/pro_pilot_ai#License-MIT-lightgrey.svg)
 ![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)
 ![Python](https://img.shields.io/badge/Language-Python-blue.svg)
 ![Status](https://img.shields.io/badge/Status-Active-success.svg)
 ![License](https://img.shields.io/badge/License-MIT-lightgrey.svg)
 ![Web4](https://img.shields.io/badge/Web4-Ready-00bfff.svg)
-[![GitHub Actions Demo](https://github.com/Web4application/project_pilot_ai/actions/workflows/github-actions-demo.yml/badge.svg)](https://github.com/Web4application/project_pilot_ai/actions/workflows/github-actions-demo.yml)
+[![GitHub Actions Demo](https://github.com/Web4application/pro_pilot_ai/actions/workflows/github-actions-demo.yml/badge.svg)](https://github.com/Web4application/pro_pilot_ai/actions/workflows/github-actions-demo.yml)
 
 # 🧠 ProjectPilotAI
 
@@ -37,8 +37,7 @@ A powerful AI-driven assistant designed to guide your entire software developmen
 ## 🏗️ Project Structure
 
 ```bash
-
-project_pilot_ai/
+pro_pilot_ai/
 ├── app/                   # Main Python app
 │   ├── core/              # AI logic & command handlers
 │   ├── blockchain/        # Fadaka integration (wallets, txs, etc.)
@@ -63,8 +62,8 @@ dependencies
 
 ```bash
 
-git clone https://github.com/Web4application/project_pilot_ai.git
-cd project_pilot_ai
+git clone https://github.com/Web4application/pro_pilot_ai.git
+cd pro_pilot_ai
 pip install -r requirements.txt
 ```
 
@@ -72,10 +71,10 @@ pip install -r requirements.txt
 
 ```bash
 
-uvicorn app.web.main:app --reload --port 8000
+uvicorn app.web.main:app --reload --port 3000
 ```
 
-Visit: [http://localhost:8000](http://localhost:8000)
+Visit: [http://127.0.0.1:3000](http://localhost:8000)
 
 ---
 
@@ -113,7 +112,8 @@ We welcome contributions!
 
 ```bash
 
-git clone https://github.com/Web4application/project_pilot_ai.git
+git clone https://github.com/Web4application/pro_pilot_ai.git
+propilot.ai
 # Create feature branch, make your changes, then:
 git push origin feature-branch
 ```
