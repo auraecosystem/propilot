@@ -59,7 +59,7 @@ server <- function(input, output) {
   
   output$forecast_table <- renderTable({
     req(creation_data())
-    data.frame(Year=2021:2025,
+    data.frame(Year=2021:2026,
                Forecast=as.data.frame(creation_data()$forecast)$`Point Forecast`)
   })
   
