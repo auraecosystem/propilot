@@ -61,23 +61,25 @@ dependencies
 ### 🛠️ Installation
 
 ```bash
-
-git clone https://github.com/Web4application/pro_pilot_ai.git
-cd pro_pilot_ai
+git clone https://github.com/auraecosystem/propilot.git
+cd propilot
 pip install -r requirements.txt
 ```
 
 ### 🚀 Run the AI Assistant Web API
 
-```bash
-
-uvicorn app.web.main:app --reload --port 3000
+```uv
+uvicorn main:app --host 127.0.0.1 --port 8000
+uvicorn app.web.main:app --reload --port 8000
 ```
 
-Visit: [[localhost](http://127.0.0.1:3000](https://propilot.ai))
+Visit: [[localhost](http://127.0.0.1:8000](https://propilot.ai))
 
 ---
 
+```uv
+>_uvicorn main:app --host 127.0.0.1 --port 8000
+```
 ## 💡 Usage
 
 You can use the assistant to:
@@ -113,7 +115,7 @@ We welcome contributions!
 ```bash
 
 git clone https://github.com/auraecosystem/propilot.git
-propilot.ai
+cd propilot.ai
 # Create feature branch, make your changes, then:
 git push origin feature-branch
 ```
