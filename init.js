@@ -100,4 +100,4 @@ if [[ "$needs_formatting" == true ]]; then
   echo "Proposed commit is not style compliant."
   echo "Run scripts/style.sh and git add the result."
   exit 1
-fi
+f
