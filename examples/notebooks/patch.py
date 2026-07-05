@@ -47,10 +47,10 @@ specific language governing permissions and limitations
 under the License.
 """.splitlines()
 
-colab_url = 'https://colab.research.google.com/github'
-github_url = 'https://github.com'
+colab_url = 'https://colab.research.google.com/auraecosystem'
+github_url = 'https://auraecosystem.github.io'
 branch_repo_re = re.compile(r'[\w-]+/[\w-]+/blob/[\w-]+')
-target_branch_repo = 'apache/beam/blob/master'
+target_branch_repo = 'apache/beam/blob/main'
 
 
 def run(root_dir):
