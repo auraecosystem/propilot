@@ -1,0 +1,41 @@
+{
+  "meta_version": "1.0",
+  "project": "PilotAI",
+  "environment": "cloud",
+  "region": "auto",
+  "build": "propilot-main",
+  "uptime": "managed",
+  "timestamp": "runtime",
+  "id": "pilotai-cloud-endpoint",
+  "name": "PilotAI Cloud Intelligence Node",
+  "capabilities": [
+    "multimodal-orchestration",
+    "task-analysis",
+    "repository-analysis",
+    "github-automation",
+    "memory",
+    "tool-routing",
+    "verification"
+  ],
+  "status": "active",
+  "event": {
+    "type": "cloud_endpoint",
+    "source": "ngrok",
+    "summary": "PilotAI cloud gateway",
+    "action": "route",
+    "memory": "ready"
+  },
+  "connection": {
+    "ecp_usage": "runtime",
+    "memory_usage": "runtime",
+    "latency_ms": "runtime",
+    "integrations": ["ngrok", "FastAPI", "GitHub"]
+  },
+  "expansion": {
+    "ai_mode": "multimodal",
+    "security_protocol": "TLS + traffic-policy",
+    "future_hooks": true,
+    "signed_by": "PilotAI",
+    "checksum": "runtime"
+  }
+}
