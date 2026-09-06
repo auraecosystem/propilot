@@ -1,0 +1,24 @@
+{
+  "on_http_request": [
+    {
+      "name": "PilotAICloudEndpoint",
+      "actions": [
+        {
+          "type": "custom-response",
+          "config": {
+            "status_code": 200,
+            "headers": {
+              "content-type": "text/html; charset=utf-8",
+              "cache-control": "no-store",
+              "x-content-type-options": "nosniff",
+              "x-frame-options": "DENY",
+              "referrer-policy": "no-referrer",
+              "access-control-allow-origin": "*"
+            },
+            "body": "<!doctype html><html><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><title>PilotAI \u2022 Cloud Endpoint</title><style>*{box-sizing:border-box}body{margin:0;min-height:100vh;background:#050914;color:#eaf4ff;font:15px system-ui,-apple-system,sans-serif;display:grid;place-items:center;padding:24px}.card{width:min(720px,100%);padding:32px;border:1px solid #1d7cff66;border-radius:24px;background:linear-gradient(145deg,#0b1830ee,#07101fee);box-shadow:0 0 60px #1479ff22}.badge{display:inline-block;padding:6px 10px;border:1px solid #20e3a566;border-radius:999px;color:#20e3a5;font-size:12px;letter-spacing:.12em;text-transform:uppercase}h1{font-size:42px;margin:18px 0 8px;letter-spacing:-.04em}p{color:#9eb2c9;line-height:1.6}.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:24px 0}.item{padding:16px;border:1px solid #ffffff12;border-radius:14px;background:#ffffff06}.k{display:block;color:#71859d;font-size:11px;text-transform:uppercase;letter-spacing:.1em}.v{display:block;margin-top:5px;color:#eaf4ff;font-weight:600}.pulse{width:9px;height:9px;background:#20e3a5;border-radius:50%;display:inline-block;box-shadow:0 0 14px #20e3a5;margin-right:7px}</style></head><body><main class=\"card\"><span class=\"badge\"><span class=\"pulse\"></span>PilotAI online</span><h1>Cloud Intelligence Node</h1><p>Secure multimodal agent endpoint is active and ready for orchestration, tool routing, memory, verification, and future protocol expansion.</p><section class=\"grid\"><div class=\"item\"><span class=\"k\">Protocol</span><span class=\"v\">PilotAI / HTTP</span></div><div class=\"item\"><span class=\"k\">Status</span><span class=\"v\">ACTIVE</span></div><div class=\"item\"><span class=\"k\">AI mode</span><span class=\"v\">Multimodal orchestration</span></div><div class=\"item\"><span class=\"k\">Security</span><span class=\"v\">TLS + policy gateway</span></div><div class=\"item\"><span class=\"k\">Memory</span><span class=\"v\">Ready for integration</span></div><div class=\"item\"><span class=\"k\">Future hooks</span><span class=\"v\">Enabled</span></div></section><p style=\"font-size:12px\">PilotAI Cloud Endpoint \u2022 metadata v1 \u2022 expansion-ready</p></main></body></html>"
+          }
+        }
+      ]
+    }
+  ]
+}
