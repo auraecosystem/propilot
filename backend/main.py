@@ -19,6 +19,10 @@ app.include_router(data.router, prefix="/data", tags=["Data"])
 app.include_router(community.router, prefix="/community", tags=["Community"])
 
 
+def _now() -> str:
+    return datetime.now(timezone.utc).isoformat()
+
+
 @app.get("/")
 def root():
     return {
@@ -36,18 +40,24 @@ def health():
         "status": "ok",
         "service": "PilotAI",
         "environment": "cloud",
-        "timestamp": datetime.now(timezone.utc).isoformat(),
+        "timestamp": _now(),
     }
 
 
 @app.get("/metadata")
 def metadata():
+    """Machine-readable PilotAI Cloud Endpoint contract."""
+    timestamp = _now()
     return {
         "meta_version": "1.0",
         "project": "PilotAI",
         "environment": "cloud",
+        "region": "auto",
+        "build": "propilot-main",
+        "uptime": "managed",
+        "timestamp": timestamp,
+        "id": "pilotai-cloud-endpoint",
         "name": "PilotAI Cloud Intelligence Node",
-        "status": "active",
         "capabilities": [
             "multimodal-orchestration",
             "task-analysis",
@@ -57,20 +67,26 @@ def metadata():
             "tool-routing",
             "verification",
         ],
+        "status": "active",
         "event": {
             "type": "cloud_endpoint",
             "source": "ngrok",
+            "summary": "PilotAI cloud gateway",
             "action": "route",
+            "memory": "ready",
         },
         "connection": {
-            "integrations": ["ngrok", "FastAPI", "GitHub"],
+            "ecpusage": "runtime",
+            "memory_usage": "runtime",
             "latency_ms": "runtime",
+            "integrations": ["ngrok", "FastAPI", "GitHub"],
+            "endpoint": "/",
         },
         "expansion": {
             "ai_mode": "multimodal",
             "security_protocol": "TLS + traffic-policy",
             "future_hooks": True,
             "signed_by": "PilotAI",
+            "checksum": "runtime",
         },
-        "timestamp": datetime.now(timezone.utc).isoformat(),
     }
